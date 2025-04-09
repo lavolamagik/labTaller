@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/CursosCreate.css') }}">
+
 <div class="container">
     <h1>Añadir Nuevo Curso</h1>
 
