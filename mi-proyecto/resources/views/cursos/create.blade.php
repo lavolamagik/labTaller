@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
+@section('title', 'Añadir Nuevo Curso')
+
+@section('content_header')
     <h1>Añadir Nuevo Curso</h1>
+@stop
+
+@section('content_body')
+<div class="container">
+
 
     <form action="{{ route('cursos.store') }}" method="POST">
         @csrf

@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
+@section('title', 'Módulos Inscritos')
+
+@section('content_header')
     <h1>Módulos Inscritos</h1>
+@stop
+
+
+@section('content_body')
+
 
     <div class="mb-3">
         <a href="{{ route('cursos.create') }}" class="btn btn-primary">Añadir</a>
@@ -32,5 +38,13 @@
             @endforeach
         </tbody>
     </table>
-</div>
 @endsection
+
+@section('css')
+    {{-- Add here extra stylesheets --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
+
+@section('js')
+    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+@stop
