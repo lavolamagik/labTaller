@@ -1,8 +1,21 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/CursosCreate.css') }}">
+
 <div class="container">
+=======
+@section('title', 'Añadir Nuevo Curso')
+
+@section('content_header')
+>>>>>>> origin/yanko
     <h1>Añadir Nuevo Curso</h1>
+@stop
+
+@section('content_body')
+<div class="container">
+
 
     <form action="{{ route('cursos.store') }}" method="POST">
         @csrf

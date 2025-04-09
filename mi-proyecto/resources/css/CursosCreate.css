@@ -1,0 +1,22 @@
+.custom-modal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.custom-modal .modal-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a237e;
+}
+
+.custom-modal label {
+    font-weight: 600;
+    color: #444;
+}
+
+.custom-modal input,
+.custom-modal select {
+    font-size: 15px;
+    color: #222;
+}
