@@ -7,20 +7,22 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
-    public function index(Request $request)
+    public function search(Request $request){
+        $search = $request->input('query');
+    
+        $cursos = Curso::when($search, function ($query, $search) {
+            return $query->where('profesor', 'like', '%' . $search . '%');
+        })->get();
+        return view('cursos.index', compact('cursos'));
+        }
+    
+    public function index()
     {
         $cursos = Curso::orderBy('profesor')->get();
         return view('cursos.index', compact('cursos'));
     }
 
-    public function search(Request $request){
-    $search = $request->input('query');
-
-    $cursos = Curso::when($search, function ($query, $search) {
-        return $query->where('profesor', 'like', '%' . $search . '%');
-    })->get();
-    return view('cursos.index', compact('cursos', 'search'));
-    }
+    
 
 
     public function create()
