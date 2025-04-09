@@ -1,11 +1,22 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
 
 <div class="container">
+=======
+@section('title', 'Módulos Inscritos')
+
+@section('content_header')
+>>>>>>> origin/yanko
     <h1>Módulos Inscritos</h1>
+@stop
+
+
+@section('content_body')
+
 
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -39,6 +50,7 @@
             @endforeach
         </tbody>
     </table>
+<<<<<<< HEAD
 </div>
 
 <!-- Modal -->
@@ -89,3 +101,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
+=======
+@endsection
+
+@section('css')
+    {{-- Add here extra stylesheets --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
+
+@section('js')
+    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+@stop
+>>>>>>> origin/yanko
