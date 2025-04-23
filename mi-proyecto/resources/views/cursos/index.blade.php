@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 
+    
+
 @section('title', 'Módulos Inscritos')
 
 @section('content_header')
@@ -8,7 +10,7 @@
 @stop
 
 
-@section('content_body')
+@section('content_body')     
 
 
     @if(session('success'))
@@ -17,7 +19,26 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
         </div>
     @endif
+        <form  method="POST" action="/cursos/buscar">
+            @csrf
+            <h2 class="text-center display-4">Buscar</h2>
+            <div class="row">
+                <div class="col-md-4 offset-md-2">
+                    <form action="simple-results.html">
+                        <div class="input-group">
+                            <input type="search" class="form-control form-control-lg" placeholder="Buscar" name="buscar">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-lg btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
+        </div>
+        
+        </form>
     <!-- Botón para abrir el popup -->
     <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#popupCurso">
         Añadir Curso
@@ -33,14 +54,18 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($cursos as $curso)
+            @forelse($cursos as $curso)
             <tr>
                 <td>{{ $curso->profesor }}</td>
                 <td>{{ $curso->estado }}</td>
                 <td>{{ $curso->curso }}</td>
                 <td>{{ $curso->oficina }}</td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="X">No se encontraron cursos.</td>
+            </tr>
+        @endforelse
         </tbody>
     </table>
 

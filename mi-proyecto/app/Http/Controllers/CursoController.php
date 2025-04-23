@@ -7,12 +7,26 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
+    public function search(Request $request)
+    {
+        $textoABuscar = $request->input('buscar');
+        $cursos = Curso::where('profesor', 'LIKE', "%$textoABuscar%")
+            ->orWhere('curso', 'LIKE', "%$textoABuscar%")
+            ->orWhere('oficina', 'LIKE', "%$textoABuscar%")
+            ->orderBy('profesor')
+            ->get();
+
+        return view('cursos.index', compact('cursos'));
+    }
     
     public function index()
     {
         $cursos = Curso::orderBy('profesor')->get();
         return view('cursos.index', compact('cursos'));
     }
+
+    
+
 
     public function create()
     {
@@ -43,5 +57,5 @@ class CursoController extends Controller
         return redirect()->route('cursos.index')
                          ->with('success', 'Curso agregado exitosamente');
     }
-
+    
 }
